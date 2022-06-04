@@ -19,9 +19,9 @@ public class FragmentDua extends Fragment {
     EditText Sisi, Alas, Tinggi, JariJari;
     TextView HasilPersegi, HasilSegitiga, HasilLingkaran;
 
-    int ansPersegi = 0;
-    int ansSegitiga = 0;
-    int ansLingkaran = 0;
+    double ansTempPersegi = 0;
+    double ansTempSegitiga = 0;
+    double ansTempLingkaran = 0;
 
 
 
@@ -34,6 +34,7 @@ public class FragmentDua extends Fragment {
         buttonHitungLingkaran = (Button) view.findViewById(R.id.BtnHitungLingkaran);
         buttonHitungSegitiga = (Button) view.findViewById(R.id.BtnHitungSegitiga);
 
+
         Sisi = (EditText) view.findViewById(R.id.et_Sisi);
         Alas = (EditText) view.findViewById(R.id.et_Alas);
         Tinggi =(EditText) view.findViewById(R.id.et_Tinggi);
@@ -43,33 +44,28 @@ public class FragmentDua extends Fragment {
         HasilSegitiga = view.findViewById(R.id.HasilSegitiga);
         HasilLingkaran = view.findViewById(R.id.HasilLingkaran);
 
-        String sisi = Sisi.getText().toString();
-        String alas = Alas.getText().toString();
-        String tinggi = Tinggi.getText().toString();
-        String jari = JariJari.getText().toString();
-
-        int SISI = Integer.parseInt(sisi);
-        int ALAS = Integer.parseInt(alas);
-        int TINGGI = Integer.parseInt(tinggi);
-        int JARI = Integer.parseInt(jari);
-
         buttonHitungPersegi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String sisi = Sisi.getText().toString();
                 if (sisi.isEmpty()){
                     Toast.makeText(getActivity(), "Sisi Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    ansPersegi = (int) (SISI * SISI);
-                    String Jawab1 = String.valueOf(ansPersegi);
-                    HasilPersegi.setText(Jawab1);
-                    ansPersegi = 0;
+                    double a = Double.parseDouble(Sisi.getText().toString());
+                    ansTempPersegi = (int) Math.ceil(a * a);
+                    String Ans1 = String.valueOf(ansTempPersegi);
+                    HasilPersegi.setText(Ans1);
+                    ansTempPersegi = 0;
                 }
             }
         });
+
         buttonHitungSegitiga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String alas = Alas.getText().toString();
+                String tinggi = Tinggi.getText().toString();
                 if (alas.isEmpty() && tinggi.isEmpty()){
                     Toast.makeText(getActivity(), "Alas dan Tinggi Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
                 }
@@ -79,25 +75,30 @@ public class FragmentDua extends Fragment {
                 else if (tinggi.isEmpty()){
                     Toast.makeText(getActivity(), "Tinggi Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
                 }
-                else {
-                    ansSegitiga = (ALAS * TINGGI) / 2;
-                    String Jawab2 = String.valueOf(ansSegitiga);
-                    HasilPersegi.setText(Jawab2);
-                    ansPersegi = 0;
+                else{
+                    double a = Double.parseDouble(alas);
+                    double b = Double.parseDouble(tinggi);
+                    ansTempSegitiga = (int) Math.ceil((a * b) / 2);
+                    String ans2 = String.valueOf(ansTempSegitiga);
+                    HasilSegitiga.setText(ans2);
+                    ansTempSegitiga = 0;
                 }
             }
         });
+
         buttonHitungLingkaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String jari = JariJari.getText().toString();
                 if (jari.isEmpty()){
                     Toast.makeText(getActivity(), "Jari - Jari Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    ansLingkaran = (3.14 * JARI * JARI);
-                    String Jawab3 = String.valueOf(ansLingkaran);
-                    HasilLingkaran.setText(Jawab3);
-                    ansLingkaran = 0;
+                    double a = Double.parseDouble(jari);
+                    ansTempLingkaran = (int) Math.ceil(((22 * a * a)/ 7));
+                    String ans3 = String.valueOf(ansTempLingkaran);
+                    HasilLingkaran.setText(ans3);
+                    ansTempLingkaran = 0;
                 }
             }
         });

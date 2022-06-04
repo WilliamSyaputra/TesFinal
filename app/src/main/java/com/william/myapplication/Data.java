@@ -9,7 +9,7 @@ public class Data {
     public Data(String username, String password) {
         this.username = username;
         this.password = password;
-        this.counter = counter;
+//        this.counter = counter;
     }
 
     public String getUsername() {

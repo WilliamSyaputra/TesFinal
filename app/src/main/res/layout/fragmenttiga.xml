@@ -17,6 +17,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner_view"
+        android:textColor="@color/white"
         android:id="@+id/et_JudulBalok"
         app:layout_constraintTop_toBottomOf="@id/tv_FragmentTiga"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -26,30 +28,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Panjang"
-        android:text="Panjang"
+        android:hint="Panjang"
         app:layout_constraintTop_toBottomOf="@+id/et_JudulBalok"
         app:layout_constraintLeft_toLeftOf="parent"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Lebar"
-        android:text="Lebar"
+        android:hint="Lebar"
         app:layout_constraintTop_toBottomOf="@+id/Panjang"
         app:layout_constraintLeft_toLeftOf="parent"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/BTinggi"
-        android:text="Tinggi"
+        android:hint="Tinggi"
         app:layout_constraintTop_toBottomOf="@+id/Lebar"
         app:layout_constraintLeft_toLeftOf="parent"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hasil"
-        android:textSize="20dp"
-        android:id="@+id/HasilBalok"
-        app:layout_constraintTop_toBottomOf="@+id/BTinggi"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,9 +54,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Hasil"
+        android:textSize="20dp"
+        android:id="@+id/HasilBalok"
+        app:layout_constraintTop_toBottomOf="@id/BTN_Balok"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Piramida"
         android:textSize="30dp"
+        android:textColor="@color/white"
         android:id="@+id/JudulPiramid"
+        android:background="@drawable/rounded_corner_view"
         app:layout_constraintTop_toBottomOf="@+id/tv_FragmentTiga"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
@@ -69,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/PTinggi"
-        android:text="Tinggi"
+        android:hint="Tinggi"
         app:layout_constraintTop_toBottomOf="@+id/JudulPiramid"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
@@ -77,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/PSisi"
-        android:text="Sisi"
+        android:hint="Sisi"
         app:layout_constraintTop_toBottomOf="@+id/PTinggi"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
@@ -92,7 +97,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Hasil"
+        android:textSize="20dp"
+        android:id="@+id/HasilPiramida"
+        app:layout_constraintTop_toBottomOf="@+id/BTN_Piramida"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Tabung"
+        android:background="@drawable/rounded_corner_view"
+        android:textColor="@color/white"
         android:id="@+id/JudulTabung"
         android:textSize="30dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -101,14 +119,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/TJAriJari"
-        android:text="Jari-Jari"
+        android:hint="Jari-Jari"
         app:layout_constraintTop_toBottomOf="@+id/JudulTabung"
         app:layout_constraintRight_toRightOf="parent"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/TTinggi"
-        android:text="Tinggi"
+        android:hint="Tinggi"
         app:layout_constraintTop_toBottomOf="@+id/TJAriJari"
         app:layout_constraintRight_toRightOf="parent"/>
     <Button
@@ -118,6 +136,14 @@
         android:id="@+id/BTN_Tabung"
         app:layout_constraintTop_toBottomOf="@id/TTinggi"
         app:layout_constraintRight_toRightOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/BTN_Tabung"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/HasilTabung"
+        android:textSize="20dp"
+        android:text="Hasil"/>
 
 
 

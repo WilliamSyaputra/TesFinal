@@ -11,12 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class FragmentSatu extends Fragment {
 
     View view;
     Button buttonPlus, buttonMinus, buttonReset;
     TextView Angka;
     private int Counter = 0;
+    private FirebaseUser user;
+    private DatabaseReference dRef;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -27,10 +34,17 @@ public class FragmentSatu extends Fragment {
 
         Angka = (TextView) view.findViewById(R.id.AngkaCounter);
 
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
         buttonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Counter++;
+                String CounterTambah = Integer.toString(Counter);
+                myRef.setValue(CounterTambah);
                 Angka.setText(Integer.toString(Counter));
             }
         });
@@ -39,6 +53,8 @@ public class FragmentSatu extends Fragment {
             @Override
             public void onClick(View view) {
                 Counter--;
+                String CounterKurang = Integer.toString(Counter);
+                myRef.setValue(CounterKurang);
                 Angka.setText(Integer.toString(Counter));
             }
         });
@@ -47,6 +63,8 @@ public class FragmentSatu extends Fragment {
             @Override
             public void onClick(View view) {
                 Counter = 0;
+                String CounterReset = Integer.toString(Counter);
+                myRef.setValue(CounterReset);
                 Angka.setText(Integer.toString(Counter));
             }
         });
